@@ -4,21 +4,25 @@ import { ThemeProvider } from "styled-components"
 
 const IndexPage = () => {
   return (
-      <ThemeProvider theme={Theme}>
-        <WelcomeGrid>
-          <Wave>
+    <ThemeProvider theme={Theme}>
+      <Content>
+        <FirstPage>
+          <WelcomeGrid>
+            <Wave>
               <WaveEmoji>👋🏼</WaveEmoji>
-          </Wave>
-          <Greeting>
-            <P>Hi there, my name's</P>
-          </Greeting>
-          <Name>
-            <H1>Jack Peplinski</H1>
-          </Name>
-          <Media>
-          </Media>
-        </WelcomeGrid>
-      </ThemeProvider>
+            </Wave>
+            <Greeting>
+              <P>Hi there, my name's</P>
+            </Greeting>
+            <Name>
+              <H1>Jack Peplinski</H1>
+            </Name>
+            <Media>
+            </Media>
+          </WelcomeGrid>
+        </FirstPage>
+      </Content>
+    </ThemeProvider>
   )
 }
 
@@ -31,20 +35,26 @@ const Theme = {
   fontSmall: "16px",
   fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
 }
-
 const H1 = styled.h1`
   font-size: ${props => props.theme.fontXLarge};
   font-family: ${props => props.theme.fontFamily};
   font-weight: bold;
   margin: 0;
 `
-
 const P = styled.p`
   font-size: ${props => props.theme.fontMedium};
   font-family: ${props => props.theme.fontFamily};
   margin: 0;
 `
-
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 8vw 12vw 8vw 12vw;
+`
+const FirstPage = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 const WelcomeGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -55,30 +65,24 @@ const WelcomeGrid = styled.div`
     "wave name name name"
     "wave media media media";
 `
-
 const Greeting = styled.div`
   grid-area: welcome; 
   vertical-align: text-bottom;
 `
-
 const Name = styled.div`
   grid-area: name;
 `
-
 const Media = styled.div`
   grid-area: media;
 `
-
 const Wave = styled.div`
   grid-area: wave;
 `
-
 const WaveEmoji = styled.div`
   font-size: 100px;
   text-align: right;
   margin: 5% 5% 0 0;
 `
-
 const MediaThumbnails = styled.div`
 
 `
