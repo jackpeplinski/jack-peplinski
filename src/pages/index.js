@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { ThemeProvider } from "styled-components"
+import { StaticImage } from "gatsby-plugin-image"
+import "../styles/Global.css"
 
 const IndexPage = () => {
   return (
@@ -18,8 +20,25 @@ const IndexPage = () => {
               <H1>Jack Peplinski</H1>
             </Name>
             <Media>
+              <div class="grid-container">
+                <a href="https://www.linkedin.com/in/jack-peplinski/" target="_blank">
+                  <div class="linkedin" alt="LinkedIn Logo"><StaticImage src="../images/linkedinLogo.png"/></div>
+                </a>
+                <a href="https://medium.com/@jackepeplinski" target="_blank">
+                  <div class="medium" alt="Medium Logo"><StaticImage src="../images/mediumLogo.png"/></div>
+                </a>
+                <a href="https://github.com/jackpeplinski" target="_blank">
+                  <div class="github" alt="GitHub Logo"><StaticImage src="../images/githubLogo.png"/></div>
+                </a>
+                <a href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" target="_blank">
+                  <div class="youtube" alt="YouTube Logo"><StaticImage src="../images/youtubeLogo.png"/></div>
+                </a>
+              </div>
             </Media>
           </WelcomeGrid>
+          <ProfileImage>
+            <StaticImage src="../images/profileShotBackground.png" />
+          </ProfileImage>
         </FirstPage>
       </Content>
     </ThemeProvider>
@@ -74,6 +93,7 @@ const Name = styled.div`
 `
 const Media = styled.div`
   grid-area: media;
+  margin: 3% 0 0 0;
 `
 const Wave = styled.div`
   grid-area: wave;
@@ -81,8 +101,14 @@ const Wave = styled.div`
 const WaveEmoji = styled.div`
   font-size: 100px;
   text-align: right;
-  margin: 5% 5% 0 0;
+  position: relative;
+  right: 25%;
 `
 const MediaThumbnails = styled.div`
 
+`
+const ProfileImage = styled.div`
+  position:absolute;
+  right:-5%;
+  top:-.5%;
 `
