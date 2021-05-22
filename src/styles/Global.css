@@ -1,17 +1,42 @@
 .grid-container {
-    display: grid;
-    grid-template-columns: .75fr .75fr .75fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      "linkedin medium github youtube";
+  display: grid;
+  grid-template-columns: .75fr .75fr .75fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "linkedin medium github youtube";
+}
+
+.linkedin { grid-area: linkedin; }
+
+.medium { grid-area: medium; }
+
+.github { grid-area: github; }
+
+.youtube { grid-area: youtube; }
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "title title title logo"
+    "date date date logo"
+    "description description description logo";
+}
+
+@media only screen and (max-width: 768px) {
+  .experience-grid {
+    grid-template-columns: 1fr 1fr 2fr 1fr;
   }
-  
-  .linkedin { grid-area: linkedin; }
-  
-  .medium { grid-area: medium; }
-  
-  .github { grid-area: github; }
-  
-  .youtube { grid-area: youtube; }
-  
+}
+
+.title { grid-area: title; }
+
+.date { grid-area: date; }
+
+.description { grid-area: description; }
+
+.logo { grid-area: logo; }
+

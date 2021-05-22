@@ -1,14 +1,15 @@
-import React from "react"
-import styled from "styled-components"
-import { ThemeProvider } from "styled-components"
-import { StaticImage } from "gatsby-plugin-image"
-import "../styles/Global.css"
+import React from 'react'
+import styled from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+import { StaticImage } from 'gatsby-plugin-image'
+import '../styles/Global.css'
+import P from '../styles/P'
 
 const IndexPage = () => {
   return (
     <ThemeProvider theme={Theme}>
       <Content>
-        <Page>
+        <FirstPage>
           <WelcomeGrid>
             <Wave>
               <WaveEmoji>👋🏼</WaveEmoji>
@@ -22,16 +23,16 @@ const IndexPage = () => {
             <Media>
               <div class="grid-container">
                 <a href="https://www.linkedin.com/in/jack-peplinski/" target="_blank">
-                  <div class="linkedin" alt="LinkedIn Logo"><StaticImage src="../images/linkedinLogo.png"/></div>
+                  <div class="linkedin" alt="LinkedIn Logo"><StaticImage src="../images/linkedinLogo.png" /></div>
                 </a>
                 <a href="https://medium.com/@jackepeplinski" target="_blank">
-                  <div class="medium" alt="Medium Logo"><StaticImage src="../images/mediumLogo.png"/></div>
+                  <div class="medium" alt="Medium Logo"><StaticImage src="../images/mediumLogo.png" /></div>
                 </a>
                 <a href="https://github.com/jackpeplinski" target="_blank">
-                  <div class="github" alt="GitHub Logo"><StaticImage src="../images/githubLogo.png"/></div>
+                  <div class="github" alt="GitHub Logo"><StaticImage src="../images/githubLogo.png" /></div>
                 </a>
                 <a href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" target="_blank">
-                  <div class="youtube" alt="YouTube Logo"><StaticImage src="../images/youtubeLogo.png"/></div>
+                  <div class="youtube" alt="YouTube Logo"><StaticImage src="../images/youtubeLogo.png" /></div>
                 </a>
               </div>
             </Media>
@@ -39,14 +40,21 @@ const IndexPage = () => {
           <ProfileImage>
             <StaticImage src="../images/profileShotBackground.png" />
           </ProfileImage>
-        </Page>
-        <Page>
+        </FirstPage>
+        <FirstPage>
           <H1>About me</H1>
-          <P>I’m a software engineering student @WesternUniversity in Ontario. </P>
-          <P>I’m originally from Calgary, Alberta; have two sisters;
-          and a dog, Finn 🐶.</P> 
-          <P>I like playing volleyball 🏐, reading 📖, and boxing 🥊 among other things.</P>  
-        </Page>
+          <P padding>I’m a software engineering student @WesternUniversity in Ontario. </P>
+          <P padding>I’m originally from Calgary, Alberta; have two sisters;
+          and a dog, Finn 🐶.</P>
+          <P padding>I like playing volleyball 🏐, reading 📖, and boxing 🥊 among other things.</P>
+        </FirstPage>
+        <H1>My experience</H1>
+        <div class="experience-grid">
+          <div class="title"><P bold> Senior Caveman</P></div>
+          <div class="date"><P gray> 550AD–320BC</P></div>
+          <div class="description"> <P>Enjoyed. Meat.</P></div>
+          <div class="logo"><StaticImage src="../images/wfnLogo.png"/></div>
+        </div>
       </Content>
     </ThemeProvider>
   )
@@ -92,12 +100,7 @@ const H1 = styled.h1`
   font-size: ${props => props.theme.fontXLarge};
   font-family: ${props => props.theme.fontFamily};
   font-weight: bold;
-  margin: 0;
-`
-const P = styled.p`
-  font-size: ${props => props.theme.fontMedium};
-  font-family: ${props => props.theme.fontFamily};
-  padding: 2%;
+  padding: 2.5% 0 2.5% 0;
   margin: 0;
 `
 const Content = styled.div`
@@ -105,7 +108,7 @@ const Content = styled.div`
   flex-direction: column;
   margin: 8vw 12vw 8vw 12vw;
 `
-const Page = styled.div`
+const FirstPage = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
