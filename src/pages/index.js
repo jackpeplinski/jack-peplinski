@@ -11,7 +11,7 @@ const IndexPage = () => {
   return (
     <ThemeProvider theme={Theme}>
       <Content>
-        <FirstPage>
+        <Page>
           <WelcomeGrid>
             <Wave>
               <WaveEmoji>👋🏼</WaveEmoji>
@@ -25,33 +25,40 @@ const IndexPage = () => {
             <Media>
               <div className="grid-container">
                 <a href="https://www.linkedin.com/in/jack-peplinski/" target="_blank">
-                  <div className="linkedin" alt="LinkedIn Logo"><StaticImage src="../images/linkedinLogo.png" alt="LinkedIn logo"/></div>
+                  <div className="linkedin" alt="LinkedIn Logo"><StaticImage src="../images/linkedinLogo.png" alt="LinkedIn logo" /></div>
                 </a>
                 <a href="https://medium.com/@jackepeplinski" target="_blank">
-                  <div className="medium" alt="Medium Logo"><StaticImage src="../images/mediumLogo.png" alt="Medium logo"/></div>
+                  <div className="medium" alt="Medium Logo"><StaticImage src="../images/mediumLogo.png" alt="Medium logo" /></div>
                 </a>
                 <a href="https://github.com/jackpeplinski" target="_blank">
-                  <div className="github" alt="GitHub Logo"><StaticImage src="../images/githubLogo.png" alt="GitHub logo"/></div>
+                  <div className="github" alt="GitHub Logo"><StaticImage src="../images/githubLogo.png" alt="GitHub logo" /></div>
                 </a>
                 <a href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" target="_blank">
-                  <div className="youtube" alt="YouTube Logo"><StaticImage src="../images/youtubeLogo.png" alt="YouTube logo"/></div>
+                  <div className="youtube" alt="YouTube Logo"><StaticImage src="../images/youtubeLogo.png" alt="YouTube logo" /></div>
                 </a>
               </div>
             </Media>
           </WelcomeGrid>
           <ProfileImage>
-            <StaticImage src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski"/>
+            <StaticImage src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" />
           </ProfileImage>
-        </FirstPage>
-        <FirstPage>
-          <H1>About me</H1>
-          <P padding>I’m a software engineering student @WesternUniversity in Ontario. </P>
-          <P padding>I’m originally from Calgary, Alberta; have two sisters;
+        </Page>
+        <Page>
+          <AboutMeText>
+            <H1>About me</H1>
+            <P padding>I’m a software engineering student @WesternUniversity in Ontario. </P>
+            <P padding>I’m originally from Calgary, Alberta; have two sisters;
           and a dog, Finn 🐶.</P>
-          <P padding>I like playing volleyball 🏐, reading 📖, and boxing 🥊 among other things.</P>
-        </FirstPage>
-        <H1>My experience</H1>
-        <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." src={wfnLogo} alt="WFN logo"/>
+            <P padding>I like playing volleyball 🏐, reading 📖, and boxing 🥊 among other things.</P>
+          </AboutMeText>
+          <Memoji>
+            <StaticImage src="../images/memoji.png" alt="Memoji of Jack Peplinski" />
+          </Memoji>
+        </Page>
+        <div>
+          <H1>My experience</H1>
+          <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." src={wfnLogo} alt="WFN logo" />
+        </div>
       </Content>
     </ThemeProvider>
   )
@@ -103,9 +110,9 @@ const H1 = styled.h1`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 8vw 12vw 8vw 12vw;
+  margin: 8vw 0vw 8vw 12vw;
 `
-const FirstPage = styled.div`
+const Page = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
@@ -139,13 +146,19 @@ const WaveEmoji = styled.div`
   position: relative;
   right: 25%;
 `
-const MediaThumbnails = styled.div`
-
-`
 const ProfileImage = styled.div`
   @media ${device.minLaptop} {
     position:absolute;
     right:-5%;
     top:-.5%;
   }
+`
+const AboutMeText = styled.div`
+  flex: 50%;
+`
+const Memoji = styled.div`
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
