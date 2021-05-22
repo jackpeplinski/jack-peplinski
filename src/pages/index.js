@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import '../styles/Global.css'
-import P from '../styles/P'
+import P from '../components/P'
+import ExperienceItem from '../components/ExperienceItem'
+import wfnLogo from '../images/wfnLogo.png'
 
 const IndexPage = () => {
   return (
@@ -21,24 +23,24 @@ const IndexPage = () => {
               <H1>Jack Peplinski</H1>
             </Name>
             <Media>
-              <div class="grid-container">
+              <div className="grid-container">
                 <a href="https://www.linkedin.com/in/jack-peplinski/" target="_blank">
-                  <div class="linkedin" alt="LinkedIn Logo"><StaticImage src="../images/linkedinLogo.png" /></div>
+                  <div className="linkedin" alt="LinkedIn Logo"><StaticImage src="../images/linkedinLogo.png" alt="LinkedIn logo"/></div>
                 </a>
                 <a href="https://medium.com/@jackepeplinski" target="_blank">
-                  <div class="medium" alt="Medium Logo"><StaticImage src="../images/mediumLogo.png" /></div>
+                  <div className="medium" alt="Medium Logo"><StaticImage src="../images/mediumLogo.png" alt="Medium logo"/></div>
                 </a>
                 <a href="https://github.com/jackpeplinski" target="_blank">
-                  <div class="github" alt="GitHub Logo"><StaticImage src="../images/githubLogo.png" /></div>
+                  <div className="github" alt="GitHub Logo"><StaticImage src="../images/githubLogo.png" alt="GitHub logo"/></div>
                 </a>
                 <a href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" target="_blank">
-                  <div class="youtube" alt="YouTube Logo"><StaticImage src="../images/youtubeLogo.png" /></div>
+                  <div className="youtube" alt="YouTube Logo"><StaticImage src="../images/youtubeLogo.png" alt="YouTube logo"/></div>
                 </a>
               </div>
             </Media>
           </WelcomeGrid>
           <ProfileImage>
-            <StaticImage src="../images/profileShotBackground.png" />
+            <StaticImage src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski"/>
           </ProfileImage>
         </FirstPage>
         <FirstPage>
@@ -49,12 +51,7 @@ const IndexPage = () => {
           <P padding>I like playing volleyball 🏐, reading 📖, and boxing 🥊 among other things.</P>
         </FirstPage>
         <H1>My experience</H1>
-        <div class="experience-grid">
-          <div class="title"><P bold> Senior Caveman</P></div>
-          <div class="date"><P gray> 550AD–320BC</P></div>
-          <div class="description"> <P>Enjoyed. Meat.</P></div>
-          <div class="logo"><StaticImage src="../images/wfnLogo.png"/></div>
-        </div>
+        <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." src={wfnLogo} alt="WFN logo"/>
       </Content>
     </ThemeProvider>
   )
