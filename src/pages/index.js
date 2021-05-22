@@ -8,7 +8,7 @@ const IndexPage = () => {
   return (
     <ThemeProvider theme={Theme}>
       <Content>
-        <FirstPage>
+        <Page>
           <WelcomeGrid>
             <Wave>
               <WaveEmoji>👋🏼</WaveEmoji>
@@ -39,7 +39,14 @@ const IndexPage = () => {
           <ProfileImage>
             <StaticImage src="../images/profileShotBackground.png" />
           </ProfileImage>
-        </FirstPage>
+        </Page>
+        <Page>
+          <H1>About me</H1>
+          <P>I’m a software engineering student @WesternUniversity in Ontario. </P>
+          <P>I’m originally from Calgary, Alberta; have two sisters;
+          and a dog, Finn 🐶.</P> 
+          <P>I like playing volleyball 🏐, reading 📖, and boxing 🥊 among other things.</P>  
+        </Page>
       </Content>
     </ThemeProvider>
   )
@@ -90,6 +97,7 @@ const H1 = styled.h1`
 const P = styled.p`
   font-size: ${props => props.theme.fontMedium};
   font-family: ${props => props.theme.fontFamily};
+  padding: 2%;
   margin: 0;
 `
 const Content = styled.div`
@@ -97,7 +105,7 @@ const Content = styled.div`
   flex-direction: column;
   margin: 8vw 12vw 8vw 12vw;
 `
-const FirstPage = styled.div`
+const Page = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
