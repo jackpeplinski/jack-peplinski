@@ -7,6 +7,7 @@ import P from '../components/P'
 import ExperienceItem from '../components/ExperienceItem'
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
+import SocialMediaThumbnail from '../components/SocialMediaThumbnail'
 
 const IndexPage = ({data}) => {
   return (
@@ -25,18 +26,10 @@ const IndexPage = ({data}) => {
             </Name>
             <Media>
               <div className="grid-container">
-                <a href="https://www.linkedin.com/in/jack-peplinski/" target="_blank">
-                  <div className="linkedin" alt="LinkedIn Logo"><StaticImage src="../images/linkedinLogo.png" alt="LinkedIn logo" /></div>
-                </a>
-                <a href="https://medium.com/@jackepeplinski" target="_blank">
-                  <div className="medium" alt="Medium Logo"><StaticImage src="../images/mediumLogo.png" alt="Medium logo" /></div>
-                </a>
-                <a href="https://github.com/jackpeplinski" target="_blank">
-                  <div className="github" alt="GitHub Logo"><StaticImage src="../images/githubLogo.png" alt="GitHub logo" /></div>
-                </a>
-                <a href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" target="_blank">
-                  <div className="youtube" alt="YouTube Logo"><StaticImage src="../images/youtubeLogo.png" alt="YouTube logo" /></div>
-                </a>
+                <SocialMediaThumbnail href="https://www.linkedin.com/in/jack-peplinski/" classNameProps="linkedin" alt="LinkedIn Logo" image={getImage(data.linkedinLogo)}/>
+                <SocialMediaThumbnail href="https://medium.com/@jackepeplinski" classNameProps="medium" alt="Medium Logo" image={getImage(data.mediumLogo)}/>
+                <SocialMediaThumbnail href="https://github.com/jackpeplinski" classNameProps="github" alt="GitHub Logo" image={getImage(data.githubLogo)} />
+                <SocialMediaThumbnail href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" classNameProps ="youtube" alt="YouTube Logo" image={getImage(data.youtubeLogo)}/>
               </div>
             </Media>
           </WelcomeGrid>
@@ -78,6 +71,26 @@ export const pageQuery = graphql`
     autodeskLogo: file(relativePath: {eq: "autodeskLogo.png"}) {
       childImageSharp {
         gatsbyImageData(width: 200, placeholder: BLURRED, formats: WEBP)
+      }
+    }
+    linkedinLogo: file(relativePath: {eq: "linkedinLogo.png"}) {
+      childImageSharp {
+        gatsbyImageData(width: 45, placeholder: BLURRED, formats: WEBP)
+      }
+    }
+    mediumLogo: file(relativePath: {eq: "mediumLogo.png"}) {
+      childImageSharp {
+        gatsbyImageData(width: 45, placeholder: BLURRED, formats: WEBP)
+      }
+    }
+    githubLogo: file(relativePath: {eq: "githubLogo.png"}) {
+      childImageSharp {
+        gatsbyImageData(width: 45, placeholder: BLURRED, formats: WEBP)
+      }
+    }
+    youtubeLogo: file(relativePath: {eq: "youtubeLogo.png"}) {
+      childImageSharp {
+        gatsbyImageData(width: 45, placeholder: BLURRED, formats: WEBP)
       }
     }
   }

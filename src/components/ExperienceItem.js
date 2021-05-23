@@ -1,7 +1,7 @@
 import React from 'react'
 import P from '../components/P'
 import '../styles/Global.css'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const ExperienceItem = (props) => {
     return (
