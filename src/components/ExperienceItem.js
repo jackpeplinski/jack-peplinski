@@ -1,7 +1,7 @@
 import React from 'react'
 import P from '../components/P'
-import { StaticImage } from 'gatsby-plugin-image'
 import '../styles/Global.css'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const ExperienceItem = (props) => {
     return (
@@ -9,8 +9,7 @@ const ExperienceItem = (props) => {
             <div className="title"><P bold>{props.title}</P></div>
             <div className="date"><P gray>{props.date}</P></div>
             <div className="description"><P>{props.description}</P></div>
-            {console.log(props.src)}
-            <div className="logo"><StaticImage src={props.src} alt={props.alt}/></div>
+            <div className="logo"><GatsbyImage image={props.image} alt={props.alt}/></div>
         </div>
     )
 }

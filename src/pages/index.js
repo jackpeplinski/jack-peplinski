@@ -5,9 +5,10 @@ import { StaticImage } from 'gatsby-plugin-image'
 import '../styles/Global.css'
 import P from '../components/P'
 import ExperienceItem from '../components/ExperienceItem'
-import wfnLogo from '../images/wfnLogo.png'
+import { graphql } from 'gatsby'
+import { getImage } from 'gatsby-plugin-image'
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
   return (
     <ThemeProvider theme={Theme}>
       <Content>
@@ -49,7 +50,7 @@ const IndexPage = () => {
             <P padding>I’m a software engineering student @WesternUniversity in Ontario. </P>
             <P padding>I’m originally from Calgary, Alberta; have two sisters;
           and a dog, Finn 🐶.</P>
-            <P padding>I like playing volleyball 🏐, reading 📖, and boxing 🥊 among other things.</P>
+            <P padding>I like playing volleyball 🏐, reading 📖, and kickboxing 🥊 among other things.</P>
           </AboutMeText>
           <Memoji>
             <StaticImage src="../images/memoji.png" alt="Memoji of Jack Peplinski" />
@@ -57,7 +58,8 @@ const IndexPage = () => {
         </Page>
         <div>
           <H1>My experience</H1>
-          <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." src={wfnLogo} alt="WFN logo" />
+          <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." image={getImage(data.wfnLogo)} alt="WFN logo" />
+          <ExperienceItem title="Software Monkay" date="2021" description="Got stuck on many bugs." image={getImage(data.autodeskLogo)} alt="Autodesk logo" />
         </div>
       </Content>
     </ThemeProvider>
@@ -66,6 +68,20 @@ const IndexPage = () => {
 
 export default IndexPage
 
+export const pageQuery = graphql`
+  query Images {
+    wfnLogo: file(relativePath: {eq: "wfnLogo.png"}) {
+      childImageSharp {
+        gatsbyImageData(width: 200, placeholder: BLURRED, formats: WEBP)
+      }
+    }
+    autodeskLogo: file(relativePath: {eq: "autodeskLogo.png"}) {
+      childImageSharp {
+        gatsbyImageData(width: 200, placeholder: BLURRED, formats: WEBP)
+      }
+    }
+  }
+`
 const Theme = {
   fontXLarge: "54px",
   fontLarge: "36px",
