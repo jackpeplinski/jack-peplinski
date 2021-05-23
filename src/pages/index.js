@@ -5,12 +5,10 @@ import { StaticImage } from 'gatsby-plugin-image'
 import '../styles/Global.css'
 import P from '../components/P'
 import ExperienceItem from '../components/ExperienceItem'
-import wfnLogo from '../images/wfnLogo.png'
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
 const IndexPage = ({data}) => {
-  const image = getImage(data.wfnLogo);
   return (
     <ThemeProvider theme={Theme}>
       <Content>
@@ -60,7 +58,8 @@ const IndexPage = ({data}) => {
         </Page>
         <div>
           <H1>My experience</H1>
-          <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." image={image} alt="WFN logo" />
+          <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." image={getImage(data.wfnLogo)} alt="WFN logo" />
+          <ExperienceItem title="Software Monkay" date="2021" description="Got stuck on many bugs." image={getImage(data.autodeskLogo)} alt="Autodesk logo" />
         </div>
       </Content>
     </ThemeProvider>
@@ -72,6 +71,11 @@ export default IndexPage
 export const pageQuery = graphql`
   query Images {
     wfnLogo: file(relativePath: {eq: "wfnLogo.png"}) {
+      childImageSharp {
+        gatsbyImageData(width: 200, placeholder: BLURRED, formats: WEBP)
+      }
+    }
+    autodeskLogo: file(relativePath: {eq: "autodeskLogo.png"}) {
       childImageSharp {
         gatsbyImageData(width: 200, placeholder: BLURRED, formats: WEBP)
       }
