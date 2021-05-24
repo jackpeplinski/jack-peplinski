@@ -4,7 +4,7 @@ html, body {
 }
 
 .profileShot {
-  right: -25vw;
+  right: -15vw;
 }
 
 @media (max-width: 1024px) {

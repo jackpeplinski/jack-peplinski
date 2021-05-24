@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
               <SocialMediaThumbnail href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" classNameProps="youtube" alt="YouTube Logo" image={getImage(data.youtubeLogo)} />
             </SocialMedia>
           </WelcomeGrid>
-          <StaticImage className="profileShot" src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" />
+          <StaticImage className="profileShot" src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" width={650}/>
         </Page>
         <Page>
           <AboutMeText>
@@ -89,11 +89,23 @@ export const pageQuery = graphql`
     }
   }
 `
-const Theme = {
-  fontXLarge: "3em",
-  fontLarge: "2em",
-  fontMedium: "2em",
-  fontSmall: "1em",
+const screenWidth = window.screen.width;
+const Theme = {  
+  fontLarge: (function(){
+    if(screenWidth >= 768) return "6em";
+    if(screenWidth < 768 && screenWidth >= 375) return "5em";
+    if(screenWidth < 375) return "4em";
+  }),
+  fontMedium: (function(){
+    if(screenWidth >= 768) return "5em";
+    if(screenWidth < 768 && screenWidth >= 375) return "4em";
+    if(screenWidth < 375) return "3em";
+  }),
+  fontSmall: (function(){
+    if(screenWidth >= 768) return "3em";
+    if(screenWidth < 768 && screenWidth >= 375) return "2em";
+    if(screenWidth < 375) return "1em";
+  }),
   fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
 }
 const size = {
@@ -124,7 +136,7 @@ const device = {
   maxDesktopL: `(max-width: ${size.desktop})`
 }
 const H1 = styled.h1`
-  font-size: ${props => props.theme.fontXLarge};
+  font-size: ${props => props.theme.fontMedium};
   font-family: ${props => props.theme.fontFamily};
   font-weight: bold;
   padding: 2.5% 0 2.5% 0;
@@ -167,7 +179,7 @@ const SocialMedia = styled.div`
   margin: 3% 0 0 0;
 `
 const WaveEmoji = styled.div`
-  font-size: ${props => props.theme.fontXLarge};
+  font-size: ${props => props.theme.fontLarge};
   position: relative;
   right: 2.5%;
 `

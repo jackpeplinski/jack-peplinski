@@ -10,7 +10,7 @@ const P = ({gray, bold, padding, children}) => {
 export default P
 
 export const StyledP = styled.p`
-    font-size: ${props => props.theme.fontMedium};
+    font-size: ${props => props.theme.fontSmall};
     font-family: ${props => props.theme.fontFamily};
     font-weight: ${props => props.bold ? "bold":"normal"};
     color: ${props => props.gray ? "#8B8B8B":"#000"};
