@@ -1,29 +1,18 @@
-.grid-container {
-  display: grid;
-  grid-template-columns: .75fr .75fr .75fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "linkedin medium github youtube";
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
-
-.linkedin { grid-area: linkedin; }
-
-.medium { grid-area: medium; }
-
-.github { grid-area: github; }
-
-.youtube { grid-area: youtube; }
 
 .experience-grid {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 0fr 0fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "title title title logo"
     "date date date logo"
     "description description description logo";
+  padding-bottom: 5%;
 }
 
 @media only screen and (max-width: 768px) {

@@ -24,18 +24,14 @@ const IndexPage = ({data}) => {
             <Name>
               <H1>Jack Peplinski</H1>
             </Name>
-            <Media>
-              <div className="grid-container">
+            <SocialMedia>
                 <SocialMediaThumbnail href="https://www.linkedin.com/in/jack-peplinski/" classNameProps="linkedin" alt="LinkedIn Logo" image={getImage(data.linkedinLogo)}/>
                 <SocialMediaThumbnail href="https://medium.com/@jackepeplinski" classNameProps="medium" alt="Medium Logo" image={getImage(data.mediumLogo)}/>
                 <SocialMediaThumbnail href="https://github.com/jackpeplinski" classNameProps="github" alt="GitHub Logo" image={getImage(data.githubLogo)} />
                 <SocialMediaThumbnail href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" classNameProps ="youtube" alt="YouTube Logo" image={getImage(data.youtubeLogo)}/>
-              </div>
-            </Media>
+            </SocialMedia>
           </WelcomeGrid>
-          <ProfileImage>
-            <StaticImage src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" />
-          </ProfileImage>
+          <StaticImage src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" width={1280}/>
         </Page>
         <Page>
           <AboutMeText>
@@ -96,10 +92,10 @@ export const pageQuery = graphql`
   }
 `
 const Theme = {
-  fontXLarge: "54px",
-  fontLarge: "36px",
-  fontMedium: "36px",
-  fontSmall: "16px",
+  fontXLarge: "5em",
+  fontLarge: "2em",
+  fontMedium: "2em",
+  fontSmall: "1em",
   fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
 }
 const size = {
@@ -139,7 +135,7 @@ const H1 = styled.h1`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 8vw 0vw 8vw 12vw;
+  margin: 5vw 0vw 0vw 5vw;
 `
 const Page = styled.div`
   display: flex;
@@ -147,8 +143,8 @@ const Page = styled.div`
 `
 const WelcomeGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 0fr 0fr 0fr 1fr;
+  grid-template-rows: 0fr 0fr 0fr;
   gap: 0px 0px;
   grid-template-areas:
     "wave welcome welcome welcome"
@@ -162,8 +158,10 @@ const Greeting = styled.div`
 const Name = styled.div`
   grid-area: name;
 `
-const Media = styled.div`
+const SocialMedia = styled.div`
   grid-area: media;
+  display: flex;
+  gap: 5%;
   margin: 3% 0 0 0;
 `
 const Wave = styled.div`
@@ -171,16 +169,8 @@ const Wave = styled.div`
 `
 const WaveEmoji = styled.div`
   font-size: 100px;
-  text-align: right;
   position: relative;
   right: 25%;
-`
-const ProfileImage = styled.div`
-  @media ${device.minLaptop} {
-    position:absolute;
-    right:-5%;
-    top:-.5%;
-  }
 `
 const AboutMeText = styled.div`
   flex: 50%;
