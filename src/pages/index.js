@@ -169,6 +169,12 @@ const WaveEmoji = styled.div`
   font-size: ${props => props.theme.fontLarge};
   position: relative;
   right: 2.5%;
+  animation: wave-animation 2s 1;
+  transform-origin: 70% 70%;
+  &:hover {
+    animation: wave-animation 2s 1;
+    transform-origin: 70% 70%;
+  }
 `
 const AboutMeText = styled.div`
   flex: 50%;
