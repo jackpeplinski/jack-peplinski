@@ -89,23 +89,10 @@ export const pageQuery = graphql`
     }
   }
 `
-const screenWidth = window.screen.width;
 const Theme = {  
-  fontLarge: (function(){
-    if(screenWidth >= 768) return "6em";
-    if(screenWidth < 768 && screenWidth >= 375) return "5em";
-    if(screenWidth < 375) return "4em";
-  }),
-  fontMedium: (function(){
-    if(screenWidth >= 768) return "5em";
-    if(screenWidth < 768 && screenWidth >= 375) return "4em";
-    if(screenWidth < 375) return "3em";
-  }),
-  fontSmall: (function(){
-    if(screenWidth >= 768) return "3em";
-    if(screenWidth < 768 && screenWidth >= 375) return "2em";
-    if(screenWidth < 375) return "1em";
-  }),
+  fontLarge: "5em",
+  fontMedium: "4em",
+  fontSmall: "2em",
   fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
 }
 const size = {
