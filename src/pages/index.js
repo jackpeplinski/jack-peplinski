@@ -14,10 +14,8 @@ const IndexPage = ({data}) => {
     <ThemeProvider theme={Theme}>
       <Content>
         <Page>
+        <WaveEmoji>👋🏼</WaveEmoji>
           <WelcomeGrid>
-            <Wave>
-              <WaveEmoji>👋🏼</WaveEmoji>
-            </Wave>
             <Greeting>
               <P>Hi there, my name's</P>
             </Greeting>
@@ -31,7 +29,7 @@ const IndexPage = ({data}) => {
                 <SocialMediaThumbnail href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" classNameProps ="youtube" alt="YouTube Logo" image={getImage(data.youtubeLogo)}/>
             </SocialMedia>
           </WelcomeGrid>
-          <StaticImage src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" width={1280}/>
+          <StaticImage src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski"/>
         </Page>
         <Page>
           <AboutMeText>
@@ -45,11 +43,11 @@ const IndexPage = ({data}) => {
             <StaticImage src="../images/memoji.png" alt="Memoji of Jack Peplinski" />
           </Memoji>
         </Page>
-        <div>
+        <MyExperience>
           <H1>My experience</H1>
           <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." image={getImage(data.wfnLogo)} alt="WFN logo" />
           <ExperienceItem title="Software Monkay" date="2021" description="Got stuck on many bugs." image={getImage(data.autodeskLogo)} alt="Autodesk logo" />
-        </div>
+        </MyExperience>
       </Content>
     </ThemeProvider>
   )
@@ -143,13 +141,13 @@ const Page = styled.div`
 `
 const WelcomeGrid = styled.div`
   display: grid;
-  grid-template-columns: 0fr 0fr 0fr 1fr;
-  grid-template-rows: 0fr 0fr 0fr;
+  grid-template-columns: 0fr 0fr 1fr;
+  grid-template-rows: 0fr 0fr;
   gap: 0px 0px;
   grid-template-areas:
-    "wave welcome welcome welcome"
-    "wave name name name"
-    "wave media media media";
+    " welcome welcome welcome"
+    " name name name"
+    " media media media";
 `
 const Greeting = styled.div`
   grid-area: welcome; 
@@ -164,13 +162,10 @@ const SocialMedia = styled.div`
   gap: 5%;
   margin: 3% 0 0 0;
 `
-const Wave = styled.div`
-  grid-area: wave;
-`
 const WaveEmoji = styled.div`
-  font-size: 100px;
+  font-size: ${props => props.theme.fontXLarge};
   position: relative;
-  right: 25%;
+  right: 2.5%;
 `
 const AboutMeText = styled.div`
   flex: 50%;
@@ -180,4 +175,7 @@ const Memoji = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+const MyExperience = styled.div`
+  margin-right: 15vw;
 `
