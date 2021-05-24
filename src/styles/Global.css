@@ -34,3 +34,7 @@ html, body {
 
 .logo { grid-area: logo; }
 
+.experience-item {
+  min-width: 150px;
+  min-height: 150px;
+}

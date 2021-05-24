@@ -182,4 +182,7 @@ const Memoji = styled.div`
 `
 const MyExperience = styled.div`
   margin-right: 15vw;
+  @media ${device.maxTablet} {
+    margin-right: 0;
+  }
 `
