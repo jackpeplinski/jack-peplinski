@@ -3,6 +3,17 @@ html, body {
   overflow-x: hidden;
 }
 
+.profileShot {
+  right: -25vw;
+}
+
+@media (max-width: 1024px) {
+  .profileShot {
+    margin: auto;
+    right: 0;
+  }
+}
+
 .experience-grid {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr 1fr;
@@ -13,12 +24,6 @@ html, body {
     "date date date logo"
     "description description description logo";
   padding-bottom: 5%;
-}
-
-@media only screen and (max-width: 768px) {
-  .experience-grid {
-    grid-template-columns: 1fr 1fr 2fr 1fr;
-  }
 }
 
 .title { grid-area: title; }

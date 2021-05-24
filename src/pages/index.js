@@ -9,12 +9,12 @@ import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 import SocialMediaThumbnail from '../components/SocialMediaThumbnail'
 
-const IndexPage = ({data}) => {
+const IndexPage = ({ data }) => {
   return (
     <ThemeProvider theme={Theme}>
       <Content>
         <Page>
-        <WaveEmoji>👋🏼</WaveEmoji>
+          <WaveEmoji>👋🏼</WaveEmoji>
           <WelcomeGrid>
             <Greeting>
               <P>Hi there, my name's</P>
@@ -23,13 +23,13 @@ const IndexPage = ({data}) => {
               <H1>Jack Peplinski</H1>
             </Name>
             <SocialMedia>
-                <SocialMediaThumbnail href="https://www.linkedin.com/in/jack-peplinski/" classNameProps="linkedin" alt="LinkedIn Logo" image={getImage(data.linkedinLogo)}/>
-                <SocialMediaThumbnail href="https://medium.com/@jackepeplinski" classNameProps="medium" alt="Medium Logo" image={getImage(data.mediumLogo)}/>
-                <SocialMediaThumbnail href="https://github.com/jackpeplinski" classNameProps="github" alt="GitHub Logo" image={getImage(data.githubLogo)} />
-                <SocialMediaThumbnail href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" classNameProps ="youtube" alt="YouTube Logo" image={getImage(data.youtubeLogo)}/>
+              <SocialMediaThumbnail href="https://www.linkedin.com/in/jack-peplinski/" classNameProps="linkedin" alt="LinkedIn Logo" image={getImage(data.linkedinLogo)} />
+              <SocialMediaThumbnail href="https://medium.com/@jackepeplinski" classNameProps="medium" alt="Medium Logo" image={getImage(data.mediumLogo)} />
+              <SocialMediaThumbnail href="https://github.com/jackpeplinski" classNameProps="github" alt="GitHub Logo" image={getImage(data.githubLogo)} />
+              <SocialMediaThumbnail href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" classNameProps="youtube" alt="YouTube Logo" image={getImage(data.youtubeLogo)} />
             </SocialMedia>
           </WelcomeGrid>
-          <StaticImage src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski"/>
+          <StaticImage className="profileShot" src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" />
         </Page>
         <Page>
           <AboutMeText>
@@ -90,7 +90,7 @@ export const pageQuery = graphql`
   }
 `
 const Theme = {
-  fontXLarge: "5em",
+  fontXLarge: "3em",
   fontLarge: "2em",
   fontMedium: "2em",
   fontSmall: "1em",
@@ -133,7 +133,11 @@ const H1 = styled.h1`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 5vw 0vw 0vw 5vw;
+  margin: 5vw 5vw 0vw 5vw;
+  max-width: 1440px;
+  @media ${device.minDesktopL} {
+    margin: auto;
+  }
 `
 const Page = styled.div`
   display: flex;
@@ -145,9 +149,9 @@ const WelcomeGrid = styled.div`
   grid-template-rows: 0fr 0fr;
   gap: 0px 0px;
   grid-template-areas:
-    " welcome welcome welcome"
-    " name name name"
-    " media media media";
+    "welcome welcome welcome"
+    "name name name"
+    "media media media";
 `
 const Greeting = styled.div`
   grid-area: welcome; 
