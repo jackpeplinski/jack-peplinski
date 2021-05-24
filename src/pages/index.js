@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
               <SocialMediaThumbnail href="https://www.youtube.com/channel/UCUzGQccUiegJ8nHxUBG0taA" classNameProps="youtube" alt="YouTube Logo" image={getImage(data.youtubeLogo)} />
             </SocialMedia>
           </WelcomeGrid>
-          <StaticImage className="profileShot" src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" width={650}/>
+          <StaticImage className="profileShot" src="../images/profileShotBackground.png" alt="Headshot of Jack Peplinski" width={650} quality={100} />
         </Page>
         <Page>
           <AboutMeText>
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
             <P padding>I like playing volleyball 🏐, reading 📖, and kickboxing 🥊 among other things.</P>
           </AboutMeText>
           <Memoji>
-            <StaticImage src="../images/memoji.png" alt="Memoji of Jack Peplinski" />
+            <StaticImage src="../images/memoji.png" alt="Memoji of Jack Peplinski" quality={100} />
           </Memoji>
         </Page>
         <MyExperience>
@@ -59,37 +59,37 @@ export const pageQuery = graphql`
   query Images {
     wfnLogo: file(relativePath: {eq: "wfnLogo.png"}) {
       childImageSharp {
-        gatsbyImageData(width: 200, placeholder: BLURRED, formats: WEBP)
+        gatsbyImageData(width: 200, quality: 100, placeholder: BLURRED, formats: WEBP)
       }
     }
     autodeskLogo: file(relativePath: {eq: "autodeskLogo.png"}) {
       childImageSharp {
-        gatsbyImageData(width: 200, placeholder: BLURRED, formats: WEBP)
+        gatsbyImageData(width: 200, quality: 100, placeholder: BLURRED, formats: WEBP)
       }
     }
     linkedinLogo: file(relativePath: {eq: "linkedinLogo.png"}) {
       childImageSharp {
-        gatsbyImageData(width: 45, placeholder: BLURRED, formats: WEBP)
+        gatsbyImageData(width: 45, quality: 100, placeholder: BLURRED, formats: WEBP)
       }
     }
     mediumLogo: file(relativePath: {eq: "mediumLogo.png"}) {
       childImageSharp {
-        gatsbyImageData(width: 45, placeholder: BLURRED, formats: WEBP)
+        gatsbyImageData(width: 45, quality: 100, placeholder: BLURRED, formats: WEBP)
       }
     }
     githubLogo: file(relativePath: {eq: "githubLogo.png"}) {
       childImageSharp {
-        gatsbyImageData(width: 45, placeholder: BLURRED, formats: WEBP)
+        gatsbyImageData(width: 45, quality: 100, placeholder: BLURRED, formats: WEBP)
       }
     }
     youtubeLogo: file(relativePath: {eq: "youtubeLogo.png"}) {
       childImageSharp {
-        gatsbyImageData(width: 45, placeholder: BLURRED, formats: WEBP)
+        gatsbyImageData(width: 45, quality: 100, placeholder: BLURRED, formats: WEBP)
       }
     }
   }
 `
-const Theme = {  
+const Theme = {
   fontLarge: "5em",
   fontMedium: "4em",
   fontSmall: "2em",
@@ -164,6 +164,7 @@ const SocialMedia = styled.div`
   display: flex;
   gap: 5%;
   margin: 3% 0 0 0;
+  max-height: 45px;
 `
 const WaveEmoji = styled.div`
   font-size: ${props => props.theme.fontLarge};
