@@ -45,8 +45,8 @@ const IndexPage = ({ data }) => {
         </Page>
         <MyExperience>
           <H1>My experience</H1>
-          <ExperienceItem title="Senior Caveman" date="550AD–320BC" description="Enjoyed. Meat." image={getImage(data.wfnLogo)} alt="WFN logo" />
-          <ExperienceItem title="Software Monkay" date="2021" description="Got stuck on many bugs." image={getImage(data.autodeskLogo)} alt="Autodesk logo" />
+          <ExperienceItem title="Software Engineering Intern" date="May 2021–Present" description="Fixin' bugs" image={getImage(data.autodeskLogo)} alt="Autodesk logo" />
+          <ExperienceItem title="President" date="Sep 2019–Present" description="President of Western's largest tech club with 300 members." image={getImage(data.wfnLogo)} alt="WFN logo" />
         </MyExperience>
       </Content>
     </ThemeProvider>
@@ -132,11 +132,7 @@ const H1 = styled.h1`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 5vw 5vw 0vw 5vw;
-  max-width: 1440px;
-  @media ${device.minDesktopL} {
-    margin: auto;
-  }
+  margin: 5% 10% 5% 10%;
 `
 const Page = styled.div`
   display: flex;
