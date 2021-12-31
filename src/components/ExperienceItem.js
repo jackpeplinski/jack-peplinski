@@ -5,11 +5,15 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 const ExperienceItem = (props) => {
     return (
-        <div className="experience-grid">
-            <div className="title"><P bold>{props.title}</P></div>
-            <div className="date"><P gray>{props.date}</P></div>
-            <div className="description"><P>{props.description}</P></div>
-            <div className="logo"><GatsbyImage className="experience-item" imgClassName="experience-item" image={props.image} alt={props.alt}/></div>
+        <div style={{display: "flex", flexWrap: "wrap-reverse"}}>
+            <div>
+                <P bold>{props.title}</P>
+                <P gray>{props.date}</P>
+                <P>{props.description}</P>
+            </div>
+            <div>
+                <GatsbyImage className="experience-item" imgClassName="experience-item" image={props.image} alt={props.alt}/>
+            </div>
         </div>
     )
 }
